@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <player />
+    <!-- <player /> -->
+    <index />
   </div>
 </template>
-
+index
 <script>
-import player from "@/components/player";
+// import Player from "@/components/Player";
+import Index from "@/components/Index";
 
 export default {
   name: "App",
   components: {
-    player,
+    // Player,
+    Index
   },
 };
 </script>
 
-<style></style>
+<style>
+@import "assets/css/base.css";
+</style>

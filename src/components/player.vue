@@ -53,7 +53,7 @@ import "@/assets/css/player.css";
 import axios from "axios";
 
 export default {
-  name: "player",
+  name: "Player",
   data() {
     return {
       inputValue: "",
