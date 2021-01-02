@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-const Discovery = () => import('@/views/Discovery')
+const Discovery = () => import('@/views/discovery/Discovery')
 // const Menu = () => import('@/components/Menu')
 
 Vue.use(VueRouter);

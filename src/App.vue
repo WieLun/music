@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <!-- <player /> -->
+    <nav-bar/>
     <index />
   </div>
 </template>
 index
 <script>
-// import Player from "@/components/Player";
-import Index from "@/components/Index";
+import Index from "components/content/index/Index";
+import NavBar from 'components/content/navbar/NavBar';
 
 export default {
   name: "App",
   components: {
-    // Player,
-    Index
+    Index,
+    NavBar,
   },
 };
 </script>
