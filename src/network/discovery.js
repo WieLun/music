@@ -4,6 +4,16 @@ import request from './request';
 export function getBanners() {
   return request({
     url: '/banner',
-    // method: 'get'
+    method: 'get'
+  });
+}
+
+export function getMusicList({ limit = 10 } = {}) {
+  return request({
+    url: '/personalized',
+    method: 'get',
+    params: {
+      limit
+    }
   });
 }

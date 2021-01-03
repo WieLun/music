@@ -1,30 +1,39 @@
 <template>
   <div class="discovery">
-    <div>
-      <swipper :banners="banners"/>
-    </div>
+    <swipper :banners="banners" />
+    <music :songs-list="songsList"/>
   </div>
+
 </template>
 
 <script>
-import Swipper from 'components/common/swipper/Swipper';
+import Swipper from "components/common/swipper/Swipper";
+import Music from "components/content/music/Music";
 
-import { getBanners } from 'network/discovery';
+import { getBanners,getMusicList } from "network/discovery";
 
 export default {
   name: "Discovery",
-  components: { Swipper },
+  components: {
+    Swipper,
+    Music
+  },
   data() {
     return {
-      banners: []
-    }
+      banners: [],
+      songsList: []
+    };
   },
-  
+
   created() {
     getBanners().then(res => {
       this.banners = res.banners;
+    });
+    getMusicList().then(res => {
+      // console.log(res.result);
+      this.songsList = res.result
     })
-  }
+  },
 };
 </script>
 
