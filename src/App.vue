@@ -2,6 +2,7 @@
   <div id="app">
     <nav-bar/>
     <index />
+    <router-view></router-view>
   </div>
 </template>
 index

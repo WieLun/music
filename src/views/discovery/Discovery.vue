@@ -1,33 +1,44 @@
 <template>
   <div class="discovery">
-    <h1>Discovery</h1>
-    <el-button @click="clickMe" type="success">成功按钮</el-button>
+    <!-- <h1>Discovery</h1>
+    <el-button @click="clickMe" type="success">成功按钮</el-button> -->
+    <div>
+      <swipper :banners="banners"/>
+    </div>
   </div>
 </template>
 
 <script>
+import Swipper from 'components/common/swipper/Swipper';
 
+import axios from 'axios'
 export default {
   name: "Discovery",
-  methods: {
-    clickMe() {
-      this.$message({
-        message: "警告哦，这是一条警告消息",
-        type: "warning",
-      });
-    },
+  components: { Swipper },
+  data() {
+    return {
+      banners: []
+    }
   },
-  mounted() {
-      console.log(111);
+  created() {
+    axios({
+      url: 'https://autumnfish.cn/banner',
+      method: 'get',
+    }).then(res => {
+      this.banners = res.data.banners;
+      console.log(this.banners);
+    })
   }
 };
 </script>
 
 <style scoped>
 .discovery {
-  -webkit-box-flex: 1;
-  flex: 1;
-  overflow-y: scroll;
-  padding: 10px 20px;
+  overflow: hidden;
+  position: absolute;
+  top: 70px;
+  bottom: 70px;
+  left: 220px;
+  right: 30px;
 }
 </style>
