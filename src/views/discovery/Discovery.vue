@@ -1,7 +1,5 @@
 <template>
   <div class="discovery">
-    <!-- <h1>Discovery</h1>
-    <el-button @click="clickMe" type="success">成功按钮</el-button> -->
     <div>
       <swipper :banners="banners"/>
     </div>
@@ -11,7 +9,8 @@
 <script>
 import Swipper from 'components/common/swipper/Swipper';
 
-import axios from 'axios'
+import { getBanners } from 'network/discovery';
+
 export default {
   name: "Discovery",
   components: { Swipper },
@@ -20,13 +19,10 @@ export default {
       banners: []
     }
   },
+  
   created() {
-    axios({
-      url: 'https://autumnfish.cn/banner',
-      method: 'get',
-    }).then(res => {
-      this.banners = res.data.banners;
-      console.log(this.banners);
+    getBanners().then(res => {
+      this.banners = res.banners;
     })
   }
 };
@@ -40,5 +36,7 @@ export default {
   bottom: 70px;
   left: 220px;
   right: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 </style>
